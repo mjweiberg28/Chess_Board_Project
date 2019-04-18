@@ -1,16 +1,27 @@
 /**
  * Author: Micah Weiberg
- * Version: 04-16-19
- * Description: JavaScript file to create the clickable buttons for the chess board
+ * Version: 04-18-19
+ * JavaScript file to create the clickable buttons for the chess board
  */
+
+let b = document.getElementsByClassName('black');
+let w = document.getElementsByClassName('white');
 
 /**
  * Function that changes the chess board cell color
- * @param element The HTML element that is being altered
- * @param color The color the cell is to be changed to
+ * @param color The color the top-leftmost cell is to be changed to
  */
-function changeColor(element, color) {
-    element.style.backgroundColor = color;
+function buttonClick(color) {
+    if (color === 'black') {
+        for (let i = 0; i < b.length; i++) {
+            b[i].style.backgroundColor = 'white';
+            w[i].style.backgroundColor = 'black';
+        }
+    }
+    else if (color === 'white') {
+        for (let i = 0; i < w.length; i++) {
+            b[i].style.backgroundColor = 'black';
+            w[i].style.backgroundColor = 'white';
+        }
+    }
 }
-
-let clr = new changeColor(this, 'white');

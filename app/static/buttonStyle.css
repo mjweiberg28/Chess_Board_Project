@@ -1,0 +1,47 @@
+/* Author: Micah Weiberg */
+/* Version: 04-18-19 */
+/* CSS file for styling the Chess Board */
+
+/* Styles the HTML table */
+.chessboard {
+    width: 648px;
+    height: 640px;
+    margin-top: 10px;
+    border: 10px solid red;
+}
+
+/* Styles the black colored tiles */
+.black {
+    float: left;
+    width: 76px;
+    height: 76px;
+    background-color: black;
+}
+
+/* Styles the white colored tiles */
+.white {
+    float: left;
+    width: 76px;
+    height: 76px;
+    background-color: white;
+}
+
+/* Styles the group of buttons */
+.button {
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid darkgray;
+}
+
+/* Styles the change-to-black button */
+#black-button {
+    background-color: black;
+    color: white;
+}
+
+/* Styles the change-to-white button */
+#white-button {
+    background-color: white;
+    color: black;
+}

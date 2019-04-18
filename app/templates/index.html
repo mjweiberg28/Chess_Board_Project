@@ -1,52 +1,15 @@
 <!-- Author: Micah Weiberg
-     Version: 04-16-19
-     Description: HTML file with CSS to display the chess board on the website -->
+     Version: 04-18-19
+     HTML file with the base material for displaying the Chess Board -->
 <!DOCTYPE html>
 <html>
     <head>
         <title>Chess Board</title>
-        <style type="text/css">
-            .chessboard {
-                width: 648px;
-                height: 640px;
-                margin-top: 10px;
-                border: 10px solid red;
-            }
-            .black {
-                float: left;
-                width: 76px;
-                height: 76px;
-                background-color: black;
-            }
-            .white {
-                float: left;
-                width: 76px;
-                height: 76px;
-                background-color: white;
-            }
-            .button {
-                text-align: center;
-                font-size: 16px;
-                cursor: pointer;
-            }
-            #black-button {
-                background-color: black;
-                color: white;
-                border: 3px solid darkgray;
-            }
-            #white-button {
-                background-color: white;
-                color: black;
-                border: 3px solid darkgray;
-            }
-        </style>
-        <script>
-            function buttonClick(color) {
-                document.body.style.backgroundColor=color;
-            }
-        </script>
-        <button class="button" id="black-button" type="button/js" onclick="buttonClick('black')">Change Color #1</button>
-        <button class="button" id="white-button" type="button/js" onclick="buttonClick('white')">Change Color #2</button>
+        <link rel="stylesheet" type="text/css" href="static/buttonStyle.css"/>
+        <script type="text/javascript" src="static/buttons.js"></script>
+        <button class="button" id="black-button" onclick="buttonClick('black')">Switch Tile Colors</button>
+        <button class="button" id="white-button" onclick="buttonClick('white')">
+            Return to Original Configuration</button>
     </head>
     <body>
     <div>

@@ -1,12 +1,16 @@
 <!-- Author: Micah Weiberg
-     Version: 04-18-19
+     Version: 04-23-19
      HTML file with the base material for displaying the Chess Board -->
 <!DOCTYPE html>
 <html>
     <head>
         <title>Chess Board</title>
+        <!-- Link below calls the buttonStyle.css CSS file to run the stylesheet for the chess board -->
         <link rel="stylesheet" type="text/css" href="static/buttonStyle.css"/>
+        <!-- Script below calls the buttons.js JavaScript file to run the buttons to switch
+            the chess board tile orientation -->
         <script type="text/javascript" src="static/buttons.js"></script>
+        <!-- The buttons for switching the tile colors to the alternate orientation and switching back -->
         <button class="button" id="black-button" onclick="buttonClick('black')">Switch Tile Colors</button>
         <button class="button" id="white-button" onclick="buttonClick('white')">
             Return to Original Configuration</button>
@@ -14,94 +18,16 @@
     <body>
     <div>
         <table class="chessboard">
-            <!-- First row -->
-            <tr >
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-            </tr>
-            <!-- Second row -->
-            <tr>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-            </tr>
-            <!-- Third row -->
-            <tr>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-            </tr>
-            <!-- Fourth row -->
-            <tr>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-            </tr>
-            <!-- Fifth row -->
-            <tr>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-            </tr>
-            <!-- Sixth row -->
-            <tr>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-            </tr>
-            <!-- Seventh row -->
-            <tr>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-            </tr>
-            <!-- Eighth row -->
-            <tr>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-                <th class="black"></th>
-                <th class="white"></th>
-            </tr>
+            {% for row in range(8) %}
+                {% for col in range(8) %}
+                    {% if row is even() %}
+                        <th class="{{ loop.cycle('white', 'black') }}"></th>
+                    {% endif %}
+                    {% if row is odd() %}
+                        <th class="{{ loop.cycle('black', 'white') }}"></th>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
         </table>
     </div>
     </body>

@@ -1,5 +1,5 @@
 <!-- Author: Micah Weiberg
-     Version: 04-23-19
+     Version: 05-01-19
      HTML file with the base material for displaying the Chess Board -->
 <!DOCTYPE html>
 <html>
@@ -7,13 +7,15 @@
         <title>Chess Board</title>
         <!-- Link below calls the buttonStyle.css CSS file to run the stylesheet for the chess board -->
         <link rel="stylesheet" type="text/css" href="static/buttonStyle.css"/>
+        <!-- Script below downloads and allows JQuery to run with AJAX-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <!-- Script below calls the buttons.js JavaScript file to run the buttons to switch
             the chess board tile orientation -->
         <script type="text/javascript" src="static/buttons.js"></script>
         <!-- The buttons for switching the tile colors to the alternate orientation and switching back -->
-        <button class="button" id="black-button" onclick="buttonClick('black')">Switch Tile Colors</button>
-        <button class="button" id="white-button" onclick="buttonClick('white')">
-            Return to Original Configuration</button>
+        <button class="button" id="black-button">Switch Tile Colors</button>
+        <button class="button" id="white-button">Return to Original</button>
+            <!--  onclick="buttonClick('black')" -->
     </head>
     <body>
     <div>

@@ -12,6 +12,6 @@ class TestView(FlaskView):
         return render_template('index.html', **locals())
 
     @route('/buttonClick', methods=['post'])
-    def clickButton(self):
+    def buttonClick(self):
         return 'Chessboard color has been changed!'
 

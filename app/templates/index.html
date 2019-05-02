@@ -1,30 +1,31 @@
 <!-- Author: Micah Weiberg
-     Version: 05-01-19
+     Version: 05-02-19
      HTML file with the base material for displaying the Chess Board -->
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Chess Board</title>
-        <!-- Link below calls the buttonStyle.css CSS file to run the stylesheet for the chess board -->
+        <title>Chessboard</title>
+        <!-- Link below calls the buttonStyle.css CSS file to run the stylesheet for the chessboard -->
         <link rel="stylesheet" type="text/css" href="static/buttonStyle.css"/>
         <!-- Script below downloads and allows JQuery to run with AJAX-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <!-- Script below calls the buttons.js JavaScript file to run the buttons to switch
-            the chess board tile orientation -->
+            the chessboard tile orientation -->
         <script type="text/javascript" src="static/buttons.js"></script>
-        <!-- The buttons for switching the tile colors to the alternate orientation and switching back -->
-        <button class="button" id="black-button">Switch Tile Colors</button>
-        <button class="button" id="white-button">Return to Original</button>
-            <!--  onclick="buttonClick('black')" -->
     </head>
     <body>
+        <!-- The button for switching the tile colors to the alternate orientation and switching back -->
+        <button class="button" id="button">Switch Tile Colors</button>
     <div>
+        <!-- Table using Jinja that populates the 8x8 chessboard in alternating white and black tiles -->
         <table class="chessboard">
             {% for row in range(8) %}
                 {% for col in range(8) %}
+                    <!-- If row is even, row starts with white tile and alternates -->
                     {% if row is even() %}
                         <th class="{{ loop.cycle('white', 'black') }}"></th>
                     {% endif %}
+                    <!-- If row is odd, row starts with black tile and alternates -->
                     {% if row is odd() %}
                         <th class="{{ loop.cycle('black', 'white') }}"></th>
                     {% endif %}

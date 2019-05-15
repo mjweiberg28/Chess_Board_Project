@@ -1,0 +1,24 @@
+<!-- Author: Micah Weiberg
+     Version: 05-15-19
+     HTML file with the Jinja for loops to display the 8x8 grid of the chessboard
+     and allow color changes depending on data sent from views/__init__.py -->
+<table class="chessboard">
+    {% for row in range(8) %}
+        {% for col in range(8) %}
+            {% if row is even() %}
+                {% if 'true' in data %}
+                    <th class="{{ loop.cycle('black', 'white') }}"></th>
+                {% else %}
+                    <th class="{{ loop.cycle('white', 'black') }}"></th>
+                {% endif %}
+            {% endif %}
+            {% if row is odd() %}
+                {% if 'true' in data %}
+                    <th class="{{ loop.cycle('white', 'black') }}"></th>
+                {% else %}
+                    <th class="{{ loop.cycle('black', 'white') }}"></th>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</table>

@@ -1,5 +1,5 @@
 /* Author: Micah Weiberg */
-/* Version: 05-02-19 */
+/* Version: 05-15-19 */
 /* CSS file for styling the Chess Board */
 
 /* Styles the HTML table */
@@ -26,7 +26,7 @@
     background-color: white;
 }
 
-/* Styles the button to change tile colors */
+/* Styles the buttons to change tile colors */
 .button {
     text-align: center;
     font-size: 16px;

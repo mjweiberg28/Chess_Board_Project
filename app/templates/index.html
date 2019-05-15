@@ -1,13 +1,14 @@
 <!-- Author: Micah Weiberg
-     Version: 05-02-19
-     HTML file with the base material for displaying the Chess Board -->
+     Version: 05-15-19
+     HTML file with the base material for displaying the chessboard and buttons, plus
+     connecting CSS, JavaScript, and JQuery code to the chessboard -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Chessboard</title>
         <!-- Link below calls the buttonStyle.css CSS file to run the stylesheet for the chessboard -->
         <link rel="stylesheet" type="text/css" href="static/buttonStyle.css"/>
-        <!-- Script below downloads and allows JQuery to run with AJAX-->
+        <!-- Script below downloads and allows JQuery to run with AJAX -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <!-- Script below calls the buttons.js JavaScript file to run the buttons to switch
             the chessboard tile orientation -->
@@ -15,23 +16,10 @@
     </head>
     <body>
         <!-- The button for switching the tile colors to the alternate orientation and switching back -->
-        <button class="button" id="button">Switch Tile Colors</button>
-    <div>
-        <!-- Table using Jinja that populates the 8x8 chessboard in alternating white and black tiles -->
-        <table class="chessboard">
-            {% for row in range(8) %}
-                {% for col in range(8) %}
-                    <!-- If row is even, row starts with white tile and alternates -->
-                    {% if row is even() %}
-                        <th class="{{ loop.cycle('white', 'black') }}"></th>
-                    {% endif %}
-                    <!-- If row is odd, row starts with black tile and alternates -->
-                    {% if row is odd() %}
-                        <th class="{{ loop.cycle('black', 'white') }}"></th>
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
-        </table>
-    </div>
+        <button class="button" id="black-button">Switch Tile Colors</button>
+        <button class="button" id="white-button">Return to Original</button>
+        <div id="board">
+            {% extends 'board.html' %}
+        </div>
     </body>
 </html>

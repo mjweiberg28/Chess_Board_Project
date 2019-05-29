@@ -1,0 +1,15 @@
+<!-- Author: Micah Weiberg
+     Version: 05-29-19
+     HTML file with the Jinja for loops to display the 8x8 grid of the chessboard
+     and allow color changes depending on data sent from views/__init__.py -->
+<table class="chessboard">
+    {% for row in range(8) %}
+        {% for col in range(8) %}
+            {% if row is even() %}
+                <th class="{{ loop.cycle(color, alt_color) }}"></th>
+            {% else %}
+                <th class="{{ loop.cycle(alt_color, color) }}"></th>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</table>

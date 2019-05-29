@@ -1,25 +1,23 @@
 <!-- Author: Micah Weiberg
-     Version: 05-15-19
+     Version: 05-29-19
      HTML file with the base material for displaying the chessboard and buttons, plus
      connecting CSS, JavaScript, and JQuery code to the chessboard -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Chessboard</title>
-        <!-- Link below calls the buttonStyle.css CSS file to run the stylesheet for the chessboard -->
-        <link rel="stylesheet" type="text/css" href="static/buttonStyle.css"/>
+        <!-- Link below calls the button_style.css CSS file to run the stylesheet for the chessboard -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='button_style.css') }}"/>
         <!-- Script below downloads and allows JQuery to run with AJAX -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-        <!-- Script below calls the buttons.js JavaScript file to run the buttons to switch
-            the chessboard tile orientation -->
-        <script type="text/javascript" src="static/buttons.js"></script>
     </head>
     <body>
-        <!-- The button for switching the tile colors to the alternate orientation and switching back -->
+        <!-- The buttons for switching the tile colors to the alternate orientation and switching back -->
         <button class="button" id="black-button">Switch Tile Colors</button>
         <button class="button" id="white-button">Return to Original</button>
         <div id="board">
-            {% extends 'board.html' %}
+            {% include 'board.html' %}
         </div>
+        <script type="text/javascript" src="{{ url_for('static', filename='buttons.js') }}"></script>
     </body>
 </html>
